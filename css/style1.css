@@ -1,0 +1,352 @@
+@charset "utf-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body {
+	font-family: "Arvo", serif;
+	;
+	;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 19px;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.contenedor {
+    position: relative;
+}
+
+header {
+    height: 65px;
+    background-color: #A51C18;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+.logo {
+    width: 111px;
+    height: 65px;
+    background-image: url(../imgs/ESTACION%2033%20LOGO%20ROJO%202_Mesa%20de%20trabajo%201.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.site-nav ul {
+    display: flex;
+    gap: 35px;
+}
+
+.site-nav li a {
+    color: #FCC319;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.site-nav li a:hover {
+    color: #F7EDD8;
+}
+.announcement-bar {
+    background-color: #FCC319;
+    color: #151617;
+    padding: 10px 0;
+    font-size: 0.9em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden; /* CLAVE: Oculta el contenido fuera de la vista */
+    white-space: nowrap;
+    border-bottom: 2px solid #FCC319;
+    font-family: Figtree;
+}
+
+.announcement-content {
+    display: flex; 
+    width: 150%; /* El ancho total de los 4 mensajes (4 * 100%) */
+    animation: marquee 25s linear infinite; /* Tiempo ajustado para una velocidad fluida */
+    will-change: transform;
+}
+.announcement-content span {
+    /* Mantiene la distribución del ancho total */
+    flex-shrink: 0; 
+    width: 25%;
+    /* AJUSTE CLAVE: Reducimos el padding de 50px a 15px */
+    padding-right: 15px; 
+}
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Desplaza el contenido por el ancho de un mensaje (25%) para que se vea continuo */
+        transform: translateX(-25%); 
+    }
+}
+.slider {
+    background-image: url(../imgs/1033%20X%20520%20PRINCIPAL.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Usamos 'display: flex' para alinear el balazo si es necesario */
+    display: flex;
+    align-items: flex-start; 
+    /* Esta altura está bien si quieres que llene la pantalla */
+    height: 100vh; 
+}
+.balazo {
+    width: 50%;
+    padding-top: 16%;
+    padding-left: 5%;
+}
+.balazo p {
+    margin-top: 3%;
+    margin-bottom: 4px;
+    color: #F8EED9;
+    border-radius: 20px;
+    padding: 12px; /* Propiedad abreviada */
+    text-align: left;
+    font-size: large;
+    font-weight: bold;
+    margin-left: -16px;
+}
+.botones-container {
+    display: flex;
+    gap: 20px; /* Espacio horizontal entre los botones */
+    margin-top: 186px; /* Ajusta este margen para posicionar verticalmente los botones */
+    margin-left: 85px;
+    /* **NOTA:** El margen de 190px de tu código original era demasiado alto. */
+}
+
+/* Estilos de los botones individuales */
+.boton, .btn-menu {
+    width: 159px;
+    height: 35px;
+    background-color: rgba(252,195,25,1.00);
+    padding: 7px; /* Propiedad abreviada */
+    border-radius: 14px;
+    font-size: 16px;
+    text-align: center;
+    color: #A51C18;
+    text-transform: uppercase;
+    font-family: "Arvo", serif;
+    font-weight: bold;
+    /* ELIMINAMOS TODOS LOS MARGENES FIJOS Y NEGATIVOS AQUI */
+    margin: 0;
+}
+
+.boton a, .btn-menu a {
+    text-decoration: none;
+    color: #A51C18;
+    font-size: 15px;
+    font-weight: bold;
+    display: block; /* Para que el link ocupe todo el espacio del div */
+}
+.gifpromos {
+    background-image: url(../imgs/E33%20GIF%20PRUEBA%20PROMOCIONES.gif);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: static;
+    width: 1360px;
+    height: 142px;
+    margin-left: -7px;
+    margin-top: 207px;
+}
+.partetres {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../imgs/E33-HEADER-INTRO-PRODUCCIONES.png);
+    background-position: center center;
+    background-size: cover;
+    font-weight: bold;
+    padding-top: 9px;
+    margin-top: -1px;
+    background-repeat: no-repeat;
+    position: static;
+}
+.partetres .balazo {
+    padding-top: 16%;
+    width: 46%;
+}
+.btn-promos {
+    width: 231px;
+    height: 54px;
+    background-color: rgba(0,76,40,1.00);
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    border-radius: 15px;
+    font-size: 16px;
+    text-align: center;
+    font-variant: normal;
+    color: #A51C18;
+    text-transform: uppercase;
+    font-family: "Arvo", serif;
+    font-style: normal;
+    font-weight: bold;
+    position: absolute;
+    bottom: 152%;
+    left: 27%;
+}
+.btn-promos a {
+    text-decoration: none;
+    color: #FCC319;
+    font-size: 15px;
+    font-weight: bold;
+    opacity: 1;
+    width: auto;
+}
+.partedos {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../imgs/ESTACION%2033%2024.png);
+    background-position: center center;
+    background-size: cover;
+    font-weight: bold;
+    padding-top: 9px;
+    margin-top: -1px;
+}
+
+.partedos .balazo {
+    padding-top: 16%;
+    width: 46%;
+}
+.partedos h1 {
+    margin-top: 1px;
+}
+.btn-ant a {
+    width: 141px;
+    height: 35px;
+    background-color: rgba(252,195,25,1.00);
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    border-radius: 14px;
+    font-size: 16px;
+    text-align: center;
+    font-variant: normal;
+    color: #A51C18;
+    text-transform: uppercase;
+    margin-top: 13px;
+    font-family: "Arvo", serif;
+    font-style: normal;
+    font-weight: bold;
+    float: left;
+    text-decoration: none;
+}
+.btn-sig a {
+    width: 141px;
+    height: 35px;
+    background-color: rgba(252,195,25,1.00);
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    border-radius: 14px;
+    font-size: 16px;
+    text-align: center;
+    font-variant: normal;
+    color: #A51C18;
+    text-transform: uppercase;
+    margin-top: 13px;
+    font-family: "Arvo", serif;
+    font-style: normal;
+    font-weight: bold;
+    float: left;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+footer {
+    padding-top: 32px;
+    padding-right: 32px;
+    padding-left: 32px;
+    padding-bottom: 32px;
+    background-color: rgba(248,238,217,1.00);
+    height: 203px;
+
+}
+footer h1 {
+    color: rgba(220,12,21,1.00);
+    font-size: 25px;
+    margin-top: -16px;
+    font-family: Figtree;
+    font-weight: bold;
+}
+footer ul {
+    margin-top: 10px;
+}
+footer li {
+}
+.col-01 {
+    width: 30%;
+    float: left;
+}
+.col-02 {
+    width: 25%;
+    float: left;
+    margin-left: 90px;
+}
+.redes {
+    width: 46px;
+    height: 46px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
