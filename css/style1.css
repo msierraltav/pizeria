@@ -1,8 +1,4 @@
 @charset "utf-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -24,7 +20,6 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -107,23 +102,24 @@ header {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    overflow: hidden; /* CLAVE: Oculta el contenido fuera de la vista */
+    overflow: hidden;
     white-space: nowrap;
     border-bottom: 2px solid #FCC319;
     font-family: Figtree;
 }
 
 .announcement-content {
-    display: flex; 
-    width: 150%; /* El ancho total de los 4 mensajes (4 * 100%) */
-    animation: marquee 25s linear infinite; /* Tiempo ajustado para una velocidad fluida */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 150%;
+    height: 100%;
+    animation: marquee 25s linear infinite;
     will-change: transform;
 }
 .announcement-content span {
-    /* Mantiene la distribución del ancho total */
     flex-shrink: 0; 
     width: 25%;
-    /* AJUSTE CLAVE: Reducimos el padding de 50px a 15px */
     padding-right: 15px; 
 }
 @keyframes marquee {
@@ -131,7 +127,6 @@ header {
         transform: translateX(0);
     }
     100% {
-        /* Desplaza el contenido por el ancho de un mensaje (25%) para que se vea continuo */
         transform: translateX(-25%); 
     }
 }
@@ -140,10 +135,8 @@ header {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* Usamos 'display: flex' para alinear el balazo si es necesario */
     display: flex;
     align-items: flex-start; 
-    /* Esta altura está bien si quieres que llene la pantalla */
     height: 100vh; 
 }
 .balazo {
@@ -156,7 +149,7 @@ header {
     margin-bottom: 4px;
     color: #F8EED9;
     border-radius: 20px;
-    padding: 12px; /* Propiedad abreviada */
+    padding: 12px;
     text-align: left;
     font-size: large;
     font-weight: bold;
@@ -164,18 +157,16 @@ header {
 }
 .botones-container {
     display: flex;
-    gap: 20px; /* Espacio horizontal entre los botones */
-    margin-top: 186px; /* Ajusta este margen para posicionar verticalmente los botones */
+    gap: 20px;
+    margin-top: 186px;
     margin-left: 85px;
-    /* **NOTA:** El margen de 190px de tu código original era demasiado alto. */
 }
 
-/* Estilos de los botones individuales */
 .boton, .btn-menu {
     width: 159px;
     height: 35px;
     background-color: rgba(252,195,25,1.00);
-    padding: 7px; /* Propiedad abreviada */
+    padding: 7px;
     border-radius: 14px;
     font-size: 16px;
     text-align: center;
@@ -183,7 +174,6 @@ header {
     text-transform: uppercase;
     font-family: "Arvo", serif;
     font-weight: bold;
-    /* ELIMINAMOS TODOS LOS MARGENES FIJOS Y NEGATIVOS AQUI */
     margin: 0;
 }
 
@@ -192,7 +182,7 @@ header {
     color: #A51C18;
     font-size: 15px;
     font-weight: bold;
-    display: block; /* Para que el link ocupe todo el espacio del div */
+    display: block;
 }
 .gifpromos {
     background-image: url(../imgs/E33%20GIF%20PRUEBA%20PROMOCIONES.gif);
