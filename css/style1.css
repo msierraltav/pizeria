@@ -125,7 +125,7 @@ header {
 .marquee__inner {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 1rem;
   white-space: nowrap;
 }
 
@@ -133,7 +133,6 @@ header {
   color: #222;
   font-weight: 900;
   letter-spacing: 0.5px;
-  padding: 0 20px;
   display: inline-block;
   font-stretch: expanded;
   transform: scaleY(1.2);
