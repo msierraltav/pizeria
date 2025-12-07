@@ -125,7 +125,7 @@ header {
 .marquee__inner {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1ch;
   white-space: nowrap;
 }
 
@@ -136,7 +136,8 @@ header {
   display: inline-block;
   font-stretch: expanded;
   transform: scaleY(1.2);
-  transform: scaleX(0.7);
+  margin: 0;
+  padding: 0;
 }
 
 .icon {
@@ -145,6 +146,8 @@ header {
   object-fit: contain;
   vertical-align: middle;
   display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 
 .announcement-content span {
