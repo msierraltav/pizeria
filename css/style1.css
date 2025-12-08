@@ -279,6 +279,43 @@ header {
     font-weight: bold;
 }
 
+.button-big-alt {
+    position: absolute;
+    min-width: 141px;
+    width: auto;
+    height: 60px;
+    background-color: #004C28;
+    padding-top: 12px;
+    padding-right: 32px;
+    padding-bottom: 12px;
+    padding-left: 32px;
+    border-radius: 20px;
+    font-size: 28px;
+    text-align: center;
+    color: #FCC319;
+    text-transform: uppercase;
+    font-family: "Arvo", serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.button-big-alt a {
+    text-decoration: none;
+    color: #FCC319;
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+}
+
+.button-big-alt:hover {
+    transform: scale(1.08);
+}
+
 
 .gifpromos {
     background-image: url(../imgs/E33%20GIF%20PRUEBA%20PROMOCIONES.gif);
@@ -446,6 +483,21 @@ header {
     display: flex;
     justify-content: center;
     gap: 40px;
+}
+
+.promociones-section{
+    width: 100%;
+}
+
+.header-promos{
+    height: 330px;
+}
+
+.header-button{
+    width: 330px;
+    position: relative;
+    top: -95px;
+    left: 350px;
 }
 
 
