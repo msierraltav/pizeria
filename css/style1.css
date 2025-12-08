@@ -441,7 +441,8 @@ header {
 
 .slider-menu-container {
     width: 100%;
-    height: 800px;
+    min-height: 950px;
+    height: auto;
     display: flex;
     background-image: url("../imgs/SLIDER_MENU/MENU-SLIDER-bg.png");
     background-position: center center;
@@ -513,12 +514,35 @@ header {
 }
 
 .everyday-promos{
+    background-image: url("../imgs/SLIDER_PROMOS/E33-SLIDER-PROMOS.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     border: 1px solid #000;
-    width: 100vh;
-    height: 200px;
+    width: 100%;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    padding-top: 12%;
+    box-sizing: border-box;
 }
 
 .promos-left{
+    width: 50%;
+    height: 100%;
+    border: 1px solid #d20909;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.promos-right{
+    width: 50%;
+    height: 100%;
     border: 1px solid #000;
     display: flex;
     justify-content: center;
@@ -526,12 +550,8 @@ header {
     flex-direction: column;
 }
 
-.promos-right{
-    border: 1px solid #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.promos-day-button{
+    height: 14%;
 }
 
 footer {
