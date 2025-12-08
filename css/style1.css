@@ -788,7 +788,7 @@ header {
 }
 
 .cotizaciones-button:hover a {
-    background-color: var(--rojo-principal);
+    background-color: var(--amarillo-estacion-light1);
     transform: scale(1.08);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
@@ -818,35 +818,49 @@ header {
 }
 
 footer {
+    width: 100%;
+    aspect-ratio: 4305 / 784; /* Exact image aspect ratio (5.49:1) */
+    background-image: url("../imgs/FOOTER/FOOTER.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba(248,238,217,1.00);
     padding-top: 32px;
     padding-right: 32px;
     padding-left: 32px;
     padding-bottom: 32px;
-    background-color: rgba(248,238,217,1.00);
-    height: 203px;
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 40px;
+    box-sizing: border-box;
 }
+
 footer h1 {
     color: rgba(220,12,21,1.00);
     font-size: 25px;
-    margin-top: -16px;
-    font-family: Figtree;
-    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: "Arvo", serif;
+    font-weight: bolder;
 }
+
 footer ul {
     margin-top: 10px;
+    font-weight: bold;
 }
+
 footer li {
+    margin-bottom: 5px;
+    font-weight: bold;
 }
-.col-01 {
-    width: 30%;
-    float: left;
+
+.footer-column {
+    /* Grid columns - centered content */
+    width: 100%;
+    text-align: center;
 }
-.col-02 {
-    width: 25%;
-    float: left;
-    margin-left: 90px;
-}
+
 .redes {
     width: 46px;
     height: 46px;
@@ -854,4 +868,14 @@ footer li {
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
+    padding-top: 0.8rem;
+}
+
+/* Responsive footer for mobile */
+@media (max-width: 768px) {
+    footer {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 24px;
+    }
 }
