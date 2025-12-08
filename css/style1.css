@@ -517,11 +517,11 @@ header {
 .everyday-promos{
     background-image: url("../imgs/SLIDER_PROMOS/E33-SLIDER-PROMOS.png");
     background-position: top center;
-    background-size: 100% auto;
+    background-size: contain;
     background-color: var(--verde-via);
     background-repeat: no-repeat;
     width: 100%;
-    height: 750px;
+    aspect-ratio: 2 / 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
