@@ -515,8 +515,8 @@ header {
 
 .everyday-promos{
     background-image: url("../imgs/SLIDER_PROMOS/E33-SLIDER-PROMOS.png");
-    background-position: center center;
-    background-size: cover;
+    background-position: top center;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     border: 1px solid #000;
     width: 100%;
