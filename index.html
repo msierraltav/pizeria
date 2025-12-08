@@ -64,23 +64,30 @@
 
       <!-- Slider Menu -->
       <div class="slider-menu-container" id="menu-section">
-        <div class="slider-menu">
-          <div class="slider-content">
-            <img src="imgs/SLIDER_MENU/PIZZA-TRADICIONAL-BOTON.png" alt="Pizza Tradicional" class="pizza-bg-img" />
+        <div class="slider-menu-wrapper">
+          <button class="slider-nav slider-nav-prev" aria-label="Previous">‹</button>
+          <div class="slider-menu-track">
+            <div class="slider-menu">
+              <div class="slider-content">
+                <img src="imgs/SLIDER_MENU/PIZZA-TRADICIONAL-BOTON.png" alt="Pizza Tradicional" class="pizza-bg-img" />
+              </div>
+              <div class="slider-content">
+                <img src="imgs/SLIDER_MENU/PIZZA-DE-ESPECIALIDAD-BOTON.png" alt="Pizza de Especialidad" class="pizza-bg-img" />
+              </div>
+              <div class="slider-content">
+                <img src="imgs/SLIDER_MENU/CONOS-DE-PAPAS-BOTON.png" alt="Conos de Papas" class="pizza-bg-img" />
+              </div>
+              <div class="slider-content">
+                <img src="imgs/SLIDER_MENU/COMPLEMENTOS-BOTON.png" alt="Complementos" class="pizza-bg-img" />
+              </div>
+              <div class="slider-content">
+                <img src="imgs/SLIDER_MENU/PIZZA-BOX-BOTON.png" alt="Pizza Box" class="pizza-bg-img" />
+              </div>
+            </div>
           </div>
-          <div class="slider-content">
-            <img src="imgs/SLIDER_MENU/PIZZA-DE-ESPECIALIDAD-BOTON.png" alt="Pizza Tradicional" class="pizza-bg-img" />
-          </div>
-          <div class="slider-content">
-            <img src="imgs/SLIDER_MENU/CONOS-DE-PAPAS-BOTON.png" alt="Pizza Tradicional" class="pizza-bg-img" />
-          </div>
-          <div class="slider-content">
-            <img src="imgs/SLIDER_MENU/COMPLEMENTOS-BOTON.png" alt="Pizza Tradicional" class="pizza-bg-img" />
-          </div>
-          <div class="slider-content">
-            <img src="imgs/SLIDER_MENU/PIZZA-BOX-BOTON.png" alt="Pizza Tradicional" class="pizza-bg-img" />
-          </div>
+          <button class="slider-nav slider-nav-next" aria-label="Next">›</button>
         </div>
+        <div class="slider-dots"></div>
         <div class="menu-buttons">
           <div class="boton button-big">
             <a
@@ -273,5 +280,139 @@
       </footer>
     </div>
     <!-- end container -->
+    
+    <script>
+      // Menu Slider
+      (function() {
+        const slider = document.querySelector('.slider-menu');
+        const track = document.querySelector('.slider-menu-track');
+        const prevBtn = document.querySelector('.slider-nav-prev');
+        const nextBtn = document.querySelector('.slider-nav-next');
+        const dotsContainer = document.querySelector('.slider-dots');
+        const slides = document.querySelectorAll('.slider-content');
+        
+        let currentIndex = 0;
+        let autoPlayInterval;
+        let slidesToShow = getSlidesToShow();
+        const totalSlides = slides.length;
+        let maxIndex = Math.max(0, totalSlides - slidesToShow);
+        
+        function getSlidesToShow() {
+          const width = window.innerWidth;
+          if (width <= 480) return 1;
+          if (width <= 768) return 2;
+          if (width <= 1024) return 3;
+          return totalSlides;
+        }
+        
+        function updateNavigationVisibility() {
+          const showNav = maxIndex > 0;
+          prevBtn.style.display = showNav ? 'flex' : 'none';
+          nextBtn.style.display = showNav ? 'flex' : 'none';
+          dotsContainer.style.display = showNav ? 'flex' : 'none';
+        }
+        
+        function createDots() {
+          dotsContainer.innerHTML = '';
+          const dotsCount = maxIndex + 1;
+          for (let i = 0; i < dotsCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+          }
+        }
+        
+        function updateDots() {
+          const dots = document.querySelectorAll('.slider-dot');
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        }
+        
+        function getSlideWidth() {
+          return slides[0].offsetWidth;
+        }
+        
+        function getGap() {
+          const style = window.getComputedStyle(slider);
+          return parseInt(style.gap) || 0;
+        }
+        
+        function updateSlider() {
+          const slideWidth = getSlideWidth();
+          const gap = getGap();
+          const offset = currentIndex * (slideWidth + gap);
+          slider.style.transform = `translateX(-${offset}px)`;
+          updateDots();
+        }
+        
+        function goToSlide(index) {
+          currentIndex = Math.max(0, Math.min(index, maxIndex));
+          updateSlider();
+          resetAutoPlay();
+        }
+        
+        function nextSlide() {
+          currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+          updateSlider();
+        }
+        
+        function prevSlide() {
+          currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+          updateSlider();
+        }
+        
+        function startAutoPlay() {
+          if (maxIndex > 0) {
+            autoPlayInterval = setInterval(nextSlide, 4000);
+          }
+        }
+        
+        function stopAutoPlay() {
+          clearInterval(autoPlayInterval);
+        }
+        
+        function resetAutoPlay() {
+          stopAutoPlay();
+          startAutoPlay();
+        }
+        
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          resetAutoPlay();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          resetAutoPlay();
+        });
+        
+        track.addEventListener('mouseenter', stopAutoPlay);
+        track.addEventListener('mouseleave', startAutoPlay);
+        
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            const newSlidesToShow = getSlidesToShow();
+            if (newSlidesToShow !== slidesToShow) {
+              slidesToShow = newSlidesToShow;
+              maxIndex = Math.max(0, totalSlides - slidesToShow);
+              currentIndex = Math.min(currentIndex, maxIndex);
+              createDots();
+              updateNavigationVisibility();
+            }
+            updateSlider();
+          }, 250);
+        });
+        
+        createDots();
+        updateNavigationVisibility();
+        updateSlider();
+        startAutoPlay();
+      })();
+    </script>
   </body>
 </html>
