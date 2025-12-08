@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url("colors.css");
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -517,6 +518,7 @@ header {
     background-image: url("../imgs/SLIDER_PROMOS/E33-SLIDER-PROMOS.png");
     background-position: top center;
     background-size: 100% auto;
+    background-color: var(--verde-via);
     background-repeat: no-repeat;
     width: 100%;
     height: 750px;
@@ -535,7 +537,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(10px, 1.5vw, 20px);
 }
 
 .promos-right{
@@ -545,10 +547,35 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    display: flex;
+    flex-direction: row;
+}
+
+.right-promos-left{
+    width: 50%;
+    height: 100%;
+}
+
+.right-promos-right{
+    width: 50%;
+    height: 100%;
+    border: #222 1px solid;
 }
 
 .promos-day-button{
-    height: 14%;
+    height: clamp(50px, 8vw, 70px);
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.promos-day-button img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 footer {
