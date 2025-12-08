@@ -671,6 +671,75 @@ header {
     transform: scale(1.1);
 }
 
+/* Estaciones Section */
+.estaciones-section {
+    width: 100%;
+    aspect-ratio: 2 / 1; /* Maintains the image's natural aspect ratio */
+    background-image: url("../imgs/SLIDER-ESTACIONES/ESTACIONES.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.estaciones-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.estaciones-left {
+    width: 50%;
+    height: 100%;
+    /* This side shows the background image */
+    position: relative;
+}
+
+.estaciones-right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 12%;
+    box-sizing: border-box;
+}
+
+.map-container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .estaciones-section {
+        aspect-ratio: 1 / 1;
+    }
+    
+    .estaciones-content {
+        flex-direction: column;
+    }
+    
+    .estaciones-left,
+    .estaciones-right {
+        width: 100%;
+        height: 50%;
+    }
+    
+    .estaciones-right {
+        padding: 15px;
+    }
+    
+    .map-container {
+    height: 500px;
+    }
+}
+
 footer {
     padding-top: 32px;
     padding-right: 32px;
