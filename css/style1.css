@@ -179,16 +179,17 @@ header {
 .slider {
     background-image: url(../imgs/1033%20X%20520%20PRINCIPAL.png);
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
+    background-color: #A51C18;
     display: flex;
-    align-items: flex-start; 
-    height: 100vh; 
+    align-items: flex-start;
+    height: 100vh;
+    width: 100%;
+    position: relative;
 }
 .balazo {
-    width: 50%;
-    padding-top: 22%;
-    padding-left: 5%;
+    width: 100%;
 }
 .headline {
     font-family: "Arvo", serif;
@@ -226,9 +227,12 @@ header {
 .slider-botones-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 40px;
-    margin-left: -100px;
-    margin-top: 140px;
+    position: absolute;
+    top: 65%;
+    left: 24%;
+    transform: translate(-50%, -50%);
 }
 
 .boton, .btn-menu {
@@ -313,7 +317,7 @@ header {
 }
 
 .button-big-alt:hover {
-    transform: scale(1.08);
+    transform: translate(-50%, -50%) scale(1.08);
 }
 
 
@@ -490,16 +494,45 @@ header {
 }
 
 .header-promos{
-    height: 330px;
+    position: relative;
+    width: 100%;
+}
+
+.header-promos img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .header-button{
-    width: 330px;
-    position: relative;
-    top: -95px;
-    left: 350px;
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    width: clamp(200px, 22vw, 330px);
 }
 
+.everyday-promos{
+    border: 1px solid #000;
+    width: 100vh;
+    height: 200px;
+}
+
+.promos-left{
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.promos-right{
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 footer {
     padding-top: 32px;
